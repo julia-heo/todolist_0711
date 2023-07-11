@@ -8,6 +8,13 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
+  <script>
+    var imageUrl_emptycheck = "{% static 'img/empty-check.png' %}";
+    var imageUrl_close = "{% static 'img/close.png' %}";
+    var imageUrl_fullcheck = "{% static 'img/full-check.png' %}";
+    var imageUrl_up = "{% static 'img/up.png' %}";
+    // imageUrl 변수를 JavaScript 코드에서 사용할 수 있습니다.
+    </script>
   <body>
     <div class="container">
       <div class="header" id="box">
@@ -15,9 +22,9 @@
         <img class="arrow" src="{% static 'img/arrow.png' %}" />
         <button id="popup-btn">입력창 불러오기</button>
         <div id="input-box">
-          <form class="todo-form" action="{% url 'create' %}" method="post">
+          <form  class="todo-form" action="{% url 'create' %} " method="post">
             {% csrf_token %}
-            <input class="todo-input" placeholder="할 일 작성하기" />
+            <input class="todo-input" name="content" type="text" placeholder="할 일 작성하기" />
             <input type="submit" hidden="true" />
           </form>
         </div>
@@ -30,7 +37,8 @@
         <div class="list" id="box" id="todo-box">
           <div class="todo">
             <h2 class="title">What I have to do</h2>
-            <ul class="todo-list">
+            <ul>
+            <!-- <ul class="todo-list"> -->
               <!--<li>
                 <button id="todo-click">
                   <img src="empty-check.png" />
@@ -45,34 +53,47 @@
                 <span>통글 중간 보고서 작성</span>
                 <button id="del"><img src="close.png" /></button>
               </li>-->
-              <!-- {% for todo in todos %}
-                    <button id="todo-click">
-                        <img src="empty-check.png" />
-                    </button>
-                    <span>{{todo.content}}</span>
-                    <button id="del"><img src="close.png" /></button>
-              {% endfor %} -->
+              {% for todo in todos %}
+                  <li>
+                      <a href= "{% url 'update' todo.id %}" >
+                        <img src="{% static 'img/empty-check.png' %}">
+                      </a>
+                      <span>{{todo.content}}</span>
+                      <a href= "{% url 'delete' todo.id %}" > 
+                        <img src="{% static 'img/close.png' %}">
+                      </a>
+                  </li>
+              {% endfor %}
             </ul>
+            
           </div>
-          <div class="done" id="done-box">
+          <div class="done" >
             <h2 class="title">What I did</h2>
-            <ul class="done-list">
+            <!-- <ul class="done-list"> -->
+            <ul>
               <!--<li>
                 <button id="done-btn"><img src="full-check.png" /></button>
                 <span>기세 중간 보고서 작성</span>
                 <button id="up"><img src="up.png" /></button>
                 <button id="del"><img src="close.png" /></button>
               </li>-->
-              <!-- {% for done in dones %}
-
-
-              {% endfor %} -->
+              {% for done in dones %}
+              <li>
+                  <img src="{% static 'img/full-check.png' %}">
+                  <span>{{done.content}}</span>
+                  <a href= "{% url 'update' done.id %}" >
+                    <img src="{% static 'img/up.png' %}">
+                  </a>
+                  <a href= "{% url 'delete' done.id %}" > 
+                    <img src="{% static 'img/close.png' %}">
+                  </a>
+              </li>
+              {% endfor %}
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <!-- <script src="script.js"></script> -->
     <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

@@ -1,0 +1,129 @@
+* {
+  color: #458fff;
+  font-family: "Pretendard";
+  font-style: normal;
+}
+
+.container {
+  padding: 85px;
+}
+
+.header {
+  margin-bottom: 66px;
+  display: flex;
+}
+
+.arrow {
+  height: 20px;
+  position: absolute;
+  top: 142px;
+  left: 1070px;
+}
+
+.todo-form {
+  display: none;
+}
+
+.calendar {
+  margin-right: 66px;
+  height: 800px;
+}
+
+.calendar-img {
+  position: absolute;
+  width: 18%;
+  left: 185px;
+  top: 550px;
+}
+
+#box {
+  border: 1px solid #85b6ff;
+  border-radius: 64px;
+}
+
+#done-box {
+  position: absolute;
+  top: 625px;
+  left: 810px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.todo {
+  padding-bottom: 160px;
+}
+
+h2 {
+  padding-left: 45px;
+  padding-bottom: 10px;
+  font-size: 36px;
+}
+
+span {
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.title {
+  padding-top: 20px;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+input {
+  position: absolute;
+  left: 1730px;
+  top: 307px;
+  width: 650px;
+  height: 60px;
+  border: 1px solid #85b6ff;
+  border-radius: 64px;
+  font-size: 28px;
+  padding-left: 25px;
+}
+
+::placeholder {
+  color: #85b6ff;
+  text-align: right;
+  padding-right: 20px;
+}
+
+#popup-btn {
+  position: absolute;
+  left: 2170px;
+  top: 128px;
+}
+
+li {
+  padding-left: 30px;
+  padding-bottom: 20px;
+  list-style-type: none;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+#todo-click {
+  display: flex;
+  align-items: center;
+}
+
+#del {
+  padding-left: 10px;
+  display: flex;
+}
+
+#up {
+  padding-left: 10px;
+  padding-right: 0;
+  display: flex;
+}

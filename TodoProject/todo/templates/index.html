@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header" id="box">
+        <h2>안녕하세요! 투두리스트입니다. 당신의 할 일을 작성해보세요 😉</h2>
+        <img class="arrow" src="{% static 'img/arrow.png' %}" />
+        <button id="popup-btn">입력창 불러오기</button>
+        <div id="input-box">
+          <form class="todo-form" action="{% url 'create' %}" method="post">
+            {% csrf_token %}
+            <input class="todo-input" placeholder="할 일 작성하기" />
+            <input type="submit" hidden="true" />
+          </form>
+        </div>
+      </div>
+      <div class="main">
+        <div class="calendar" id="box">
+          <h2 class="title">2023.05.16</h2>
+          <img class="calendar-img" src="{% static 'img/calendar.png' %}" />
+        </div>
+        <div class="list" id="box" id="todo-box">
+          <div class="todo">
+            <h2 class="title">What I have to do</h2>
+            <ul class="todo-list">
+              <!--<li>
+                <button id="todo-click">
+                  <img src="empty-check.png" />
+                </button>
+                <span>대영 팀플 사례조사</span>
+                <button id="del"><img src="close.png" /></button>
+              </li>
+              <li>
+                <button id="todo-click">
+                  <img src="empty-check.png" />
+                </button>
+                <span>통글 중간 보고서 작성</span>
+                <button id="del"><img src="close.png" /></button>
+              </li>-->
+              <!-- {% for todo in todos %}
+                    <button id="todo-click">
+                        <img src="empty-check.png" />
+                    </button>
+                    <span>{{todo.content}}</span>
+                    <button id="del"><img src="close.png" /></button>
+              {% endfor %} -->
+            </ul>
+          </div>
+          <div class="done" id="done-box">
+            <h2 class="title">What I did</h2>
+            <ul class="done-list">
+              <!--<li>
+                <button id="done-btn"><img src="full-check.png" /></button>
+                <span>기세 중간 보고서 작성</span>
+                <button id="up"><img src="up.png" /></button>
+                <button id="del"><img src="close.png" /></button>
+              </li>-->
+              <!-- {% for done in dones %}
+
+
+              {% endfor %} -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

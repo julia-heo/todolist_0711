@@ -1,0 +1,28 @@
+<ul class="todo-list">
+    {% for todo in todos %}
+        <li>
+            <a href= "{% url 'update' todo.id %}" > 완료</a>
+            <span>{{todo.content}}</span>
+            <a href= "{% url 'delete' todo.id %}" > 삭제</a>
+        </li>
+    {% endfor %}
+</ul>
+<br>
+<ul class="done-list">
+    {% for done in dones %}
+        <li>
+            <a href= "{% url 'update' done.id %}" > 취소</a>
+            <span>{{done.content}}</span>
+            <a href= "{% url 'delete' done.id %}" > 삭제</a>
+        </li>
+
+    {% endfor %}
+  </ul>
+
+  <div id="input-box">
+    <form class="todo-form" action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+      <input class="todo-input" type="text" name="content" placeholder="할 일 작성하기" />
+      <input type="submit" hidden="true" />
+    </form>
+  </div>

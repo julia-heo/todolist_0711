@@ -38,21 +38,6 @@
           <div class="todo">
             <h2 class="title">What I have to do</h2>
             <ul>
-            <!-- <ul class="todo-list"> -->
-              <!--<li>
-                <button id="todo-click">
-                  <img src="empty-check.png" />
-                </button>
-                <span>대영 팀플 사례조사</span>
-                <button id="del"><img src="close.png" /></button>
-              </li>
-              <li>
-                <button id="todo-click">
-                  <img src="empty-check.png" />
-                </button>
-                <span>통글 중간 보고서 작성</span>
-                <button id="del"><img src="close.png" /></button>
-              </li>-->
               {% for todo in todos %}
                   <li>
                       <a href= "{% url 'update' todo.id %}" >
@@ -65,18 +50,11 @@
                   </li>
               {% endfor %}
             </ul>
-            
           </div>
           <div class="done" >
             <h2 class="title">What I did</h2>
             <!-- <ul class="done-list"> -->
             <ul>
-              <!--<li>
-                <button id="done-btn"><img src="full-check.png" /></button>
-                <span>기세 중간 보고서 작성</span>
-                <button id="up"><img src="up.png" /></button>
-                <button id="del"><img src="close.png" /></button>
-              </li>-->
               {% for done in dones %}
               <li>
                   <img src="{% static 'img/full-check.png' %}">
